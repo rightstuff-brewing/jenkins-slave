@@ -1,4 +1,4 @@
-def projecName = 'rightstuff-176212';
+def projectName = 'rightstuff-176212';
 
 podTemplate(cloud: 'local cluster', label: 'docker',
     containers: [containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true) ],
