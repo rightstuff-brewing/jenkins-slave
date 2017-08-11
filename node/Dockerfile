@@ -7,7 +7,7 @@ USER root
 
 RUN apt-get update -y
 RUN apt-get install -y jq
-RUN curl https://sdk.cloud.google.com | bash && mv google-cloud-sdk /opt
+RUN curl https://sdk.cloud.google.com | bash && mv /root/google-cloud-sdk /opt
 RUN curl -fsSL https://get.docker.com/ | sh
 RUN gcloud components install kubectl
 
