@@ -7,7 +7,7 @@ podTemplate(cloud: 'local cluster', label: 'docker',
         container('docker') {
             checkout scm
 
-            stae('Build docker image') {
+            stage('Build docker image') {
                 def imageTag = "gcr.io/${projectName}/jenkins-slave:docker.${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
                 sh "DOCKER_API_VERSION=1.23 docker build -t ${imageTag}  ./docker"
                 sh "gcloud docker -- push ${imageName}"
