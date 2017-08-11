@@ -13,6 +13,11 @@ podTemplate(cloud: 'local cluster', label: 'jenkins-slave-k8s', containers: [
     node('jenkins-slave-k8s') {
         checkout scm
         
+        stage('Setup Environment') {
+            // Install tools
+            sh 'curl -fsSL https://get.docker.com/ | sh'
+        }
+
         stage('Build Node Docker') {
             sh 'docker build -t rightstuff-brewing/jenkins-slave:node ./node'
         }
