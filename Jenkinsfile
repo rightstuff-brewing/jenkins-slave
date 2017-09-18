@@ -36,7 +36,7 @@ podTemplate(cloud: 'local cluster', label: 'docker',
                     def imageTag = "${branchImageTag}.${env.BUILD_NUMBER}"
 
                     env.DOCKER_API_VERSION = '1.23'
-                    sh "DOCKER_API_VERSION=1.23 docker build -t ${imageTag} ./node"
+                    sh "DOCKER_API_VERSION=1.23 docker build -t ${imageTag} ./golang"
                     sh "DOCKER_API_VERSION=1.23 docker tag ${imageTag} ${branchImageTag}"
                     sh "DOCKER_API_VERSION=1.23 gcloud docker -- push ${imageTag}"
                     sh "DOCKER_API_VERSION=1.23 gcloud docker -- push ${branchImageTag}"
