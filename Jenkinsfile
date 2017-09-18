@@ -32,7 +32,7 @@ podTemplate(cloud: 'local cluster', label: 'docker',
                 }
 
                 stage('Build golang image') {
-                    def branchImageTag = "gcr.io/${projectName}/jenkins-slave:node.${env.BRANCH_NAME}"
+                    def branchImageTag = "gcr.io/${projectName}/jenkins-slave:golang.${env.BRANCH_NAME}"
                     def imageTag = "${branchImageTag}.${env.BUILD_NUMBER}"
 
                     env.DOCKER_API_VERSION = '1.23'
